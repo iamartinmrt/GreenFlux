@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:green_flux/green_flux_app.dart';
+import 'package:green_flux/handlers/env_handler.dart';
 
 void main() {
-  runApp(const MyApp());
-}
+  WidgetsFlutterBinding.ensureInitialized();
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  EnvHandler.setUpAdditionalArgs();
 
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Green Flux Demo',
-      home: GreenFluxApp(),
-    );
-  }
+  runApp(const GreenFluxApp());
 }
