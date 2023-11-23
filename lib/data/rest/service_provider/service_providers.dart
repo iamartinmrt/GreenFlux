@@ -19,6 +19,7 @@ final serviceDioProvider = Provider<Dio>((ref) {
   /// Monitor every usage of this Dio and log every action
   dio.interceptors.add(QueuedInterceptorsWrapper(
     onRequest: (options, handler) {
+      options.headers["Authorization"] = "ApiKey 7968af1a-f683-4fd6-8ce3-6a7a896bbb56";
       /// If any API has an extra data containing a custom timeout, then change
       /// the timeout to what was past on that API
       if (options.extra.containsKey(Constants.customTimeOut)) {
@@ -27,6 +28,7 @@ final serviceDioProvider = Provider<Dio>((ref) {
       }
       _logRequest(options.baseUrl, options.path, options.headers.toString(),
           options.data.toString());
+      return handler.next(options);
     },
     onResponse: (response, handler) {
       _logResponse(

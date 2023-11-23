@@ -15,7 +15,7 @@ class StationsRepository {
 
   StationsRepository(this._stationsService);
 
-  Future<NetworkResponse<DomainStations>> getStationsList(String search) async {
+  Future<NetworkResponse<List<DomainStations>>> getStationsList(String search) async {
     try{
       _cancelToken.cancel();
       _cancelToken = CancelToken();

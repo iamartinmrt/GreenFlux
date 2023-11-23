@@ -6,5 +6,4 @@ part 'network_response.freezed.dart';
 class NetworkResponse<T> with _$NetworkResponse<T> {
   const factory NetworkResponse.success(T data) = _data;
   const factory NetworkResponse.error(String error) = _error;
-  const factory NetworkResponse.canceled() = _canceled;
 }
