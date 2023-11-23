@@ -1,4 +1,4 @@
-import 'package:green_flux/handlers/env_properties.dart';
+import 'package:green_flux/core/handlers/env_properties.dart';
 
 class EnvHandler{
   late EnvProperties envProperties;
@@ -12,7 +12,6 @@ class EnvHandler{
   EnvHandler.setUpAdditionalArgs() {
     instance.envProperties = EnvProperties(
       baseUrl: const String.fromEnvironment("baseUrl"),
-      name: const String.fromEnvironment("name"),
       environment: const String.fromEnvironment("environment"),
       apiKey: const String.fromEnvironment("apiKey"),
     );

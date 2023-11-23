@@ -1,6 +1,5 @@
 {
   "baseUrl": "https://app-flutter-locations-test.azurewebsites.net",
-  "name": "GreenFlux",
   "environment": "prod",
   "apiKey": "7968af1a-f683-4fd6-8ce3-6a7a896bbb56"
 }
