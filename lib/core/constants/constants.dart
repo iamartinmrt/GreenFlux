@@ -5,6 +5,9 @@ class Constants{
   static const double cardBorderRadius = 8;
   static const String defaultErrorMessage = "Something went wrong!";
 
+  static const String routeStationList = "/station_list";
+  static const String routeStationDetail = "station_detail";
+
   static const String textTypingSomething = "Try typing something!";
   static const String textSearch = "Search";
   static const String textSearchLocation = "Search location";

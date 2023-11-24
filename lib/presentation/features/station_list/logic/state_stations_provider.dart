@@ -1,13 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:green_flux/core/constants/constants.dart';
 import 'package:green_flux/core/mapper/stations_mapping.dart';
+import 'package:green_flux/core/router/router.dart';
 import 'package:green_flux/domain/domain_models/domain_stations.dart';
 import 'package:green_flux/domain/repositories/stations_repository.dart';
 import 'package:green_flux/presentation/presentation_models/stations_presentation_models.dart';
 
 final stateStationsProvider = StateNotifierProvider<StationsStateNotifier, StationsList>((ref) {
-  return StationsStateNotifier(ref.watch(stationsRepositoryProvider));
+  return StationsStateNotifier(ref, ref.watch(stationsRepositoryProvider));
 });
 
 class StationsStateNotifier extends StateNotifier<StationsList>{
@@ -15,8 +17,9 @@ class StationsStateNotifier extends StateNotifier<StationsList>{
   final int _searchGapTime = 500;
   Timer? _timer;
   String _previousSearch = "";
+  final Ref ref;
 
-  StationsStateNotifier(this._repository) : super(const StationsList.idle());
+  StationsStateNotifier(this.ref, this._repository) : super(const StationsList.idle());
 
   /// This function will be called everytime user type a new digit
   /// Therefore we need to capture the lastest [search] text and compare to
@@ -42,6 +45,10 @@ class StationsStateNotifier extends StateNotifier<StationsList>{
           }
       );
     }
+  }
+
+  onStationTap(String address){
+    ref.read(routerProvider).push("${Constants.routeStationList}/${Constants.routeStationDetail}/$address");
   }
 
   /// If user stop typing for [_searchGapTime], then we start making API call
