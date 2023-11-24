@@ -12,7 +12,7 @@ final stateStationsProvider = StateNotifierProvider<StationsStateNotifier, Stati
 
 class StationsStateNotifier extends StateNotifier<StationsList>{
   final StationsRepository _repository;
-  final int _searchGapTime = 0;
+  final int _searchGapTime = 500;
   Timer? _timer;
   String _previousSearch = "";
 
@@ -48,7 +48,7 @@ class StationsStateNotifier extends StateNotifier<StationsList>{
   /// And update the list with the data that they have searched for
   onNewTextSearched(String newSearch){
     if(_timer?.isActive ?? false) _timer?.cancel();
-    _timer = Timer(Duration(seconds: _searchGapTime), () => onSearch(newSearch));
+    _timer = Timer(Duration(milliseconds: _searchGapTime), () => onSearch(newSearch));
   }
 
 }
