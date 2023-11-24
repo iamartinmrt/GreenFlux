@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:green_flux/core/constants/constants.dart';
 import 'package:green_flux/presentation/features/station_detail/ui/station_detail_page.dart';
 import 'package:green_flux/presentation/features/station_list/ui/station_list_page.dart';
+import 'package:green_flux/presentation/presentation_models/stations_presentation_models.dart';
 import 'package:riverpod/riverpod.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -28,12 +29,12 @@ final routerProvider = Provider(
           ),
           routes: [
             GoRoute(
-              path: "${Constants.routeStationDetail}/:address",
+              path: Constants.routeStationDetail,
               parentNavigatorKey: _rootNavigatorKey,
               pageBuilder: (context, state) => CustomTransitionPage<void>(
                 transitionDuration: const Duration(milliseconds: 300),
                 key: state.pageKey,
-                child: StationDetailPage(state.pathParameters["address"]!),
+                child: StationDetailPage(state.extra as StationDetail),
                 transitionsBuilder: (context, animation, secondaryAnimation, child) =>
                     FadeTransition(opacity: animation, child: child),
               ),

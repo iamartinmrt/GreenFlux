@@ -10,5 +10,9 @@ class Assets{
 
   static String get noResultIcon => getCommonResources("no_results");
 
+  static String get rightArrow => getCommonResources("right_arrow");
+
+  static String get routing => getCommonResources("routing");
+
   static String getCommonResources(String img)=> "assets/images/$img.png";
 }

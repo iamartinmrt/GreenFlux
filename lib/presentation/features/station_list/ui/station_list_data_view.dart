@@ -85,17 +85,28 @@ class _StationItemPreview extends ConsumerWidget {
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Visibility(
-                  visible: (station.status == StationStatus.available),
-                  replacement: Hero(
-                    tag: "${station.address}-i",
-                    child: Image.asset(Assets.chargingStatus,
-                        width: 35, height: 35),
-                  ),
-                  child: Image.asset(Assets.availableStatus,
-                      width: 35, height: 35),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Visibility(
+                      visible: (station.status == StationStatus.available),
+                      replacement: Image.asset(Assets.chargingStatus,
+                          width: 35, height: 35),
+                      child: Image.asset(Assets.availableStatus,
+                          width: 35, height: 35),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8),
+                      child: Hero(
+                        tag: "${station.address}-distance",
+                        child: Text(station.distance ?? "",
+                            style: Theme.of(context).textTheme.bodySmall),
+                      ),
+                    ),
+                  ],
                 ),
                 Expanded(
                   child: Padding(
@@ -104,16 +115,19 @@ class _StationItemPreview extends ConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Hero(
-                          tag: "${station.address}-t",
+                          tag: "${station.address}-address",
                           child: Text(station.address,
                               style: Theme.of(context).textTheme.titleMedium,
                               overflow: TextOverflow.ellipsis),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 4),
-                          child: Text(station.city,
-                              style: TextStyles.body2,
-                              overflow: TextOverflow.ellipsis),
+                        Hero(
+                          tag: "${station.address}-location",
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 4),
+                            child: Text(station.city,
+                                style: Theme.of(context).textTheme.bodyMedium,
+                                overflow: TextOverflow.ellipsis),
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 8),
@@ -128,6 +142,7 @@ class _StationItemPreview extends ConsumerWidget {
                     ),
                   ),
                 ),
+                Image.asset(Assets.rightArrow, width: 12, height: 12),
               ],
             ),
           ),
