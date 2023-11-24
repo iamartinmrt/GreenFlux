@@ -90,7 +90,7 @@ class _StationItemPreview extends ConsumerWidget {
                 Visibility(
                   visible: (station.status == StationStatus.available),
                   replacement: Hero(
-                    tag: station.address,
+                    tag: "${station.address}-i",
                     child: Image.asset(Assets.chargingStatus,
                         width: 35, height: 35),
                   ),
@@ -103,9 +103,12 @@ class _StationItemPreview extends ConsumerWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(station.address,
-                            style: TextStyles.title1,
-                            overflow: TextOverflow.ellipsis),
+                        Hero(
+                          tag: "${station.address}-t",
+                          child: Text(station.address,
+                              style: Theme.of(context).textTheme.titleMedium,
+                              overflow: TextOverflow.ellipsis),
+                        ),
                         Padding(
                           padding: const EdgeInsets.only(top: 4),
                           child: Text(station.city,
