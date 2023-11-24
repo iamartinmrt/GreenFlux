@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:green_flux/core/constants/theme.dart';
 import 'package:green_flux/core/router/router.dart';
 
 class GreenFluxApp extends ConsumerWidget {
@@ -10,6 +11,7 @@ class GreenFluxApp extends ConsumerWidget {
     return MaterialApp.router(
       routerConfig: ref.read(routerProvider),
       debugShowCheckedModeBanner: false,
+      theme: CustomTheme.themeData,
     );
   }
 }

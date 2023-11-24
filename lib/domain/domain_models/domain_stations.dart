@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:green_flux/core/constants/enums.dart';
 
 part 'domain_stations.freezed.dart';
 
@@ -18,8 +19,8 @@ class DomainStations with _$DomainStations{
 class DomainEvses with _$DomainEvses{
   const factory DomainEvses({
     required String evseId,
-    required String status,
+    required EvsesStatus status,
     required String connectorType,
-    required String powerType,
+    required EvsesPowerType powerType,
   }) = _domainEvses;
 }

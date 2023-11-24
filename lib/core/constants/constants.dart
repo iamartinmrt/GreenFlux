@@ -2,4 +2,12 @@ class Constants{
   static const int dioDefaultConnectTimeOut = 20000;
   static const int dioDefaultReceiveTimeOut = 20000;
   static const String customTimeOut = "customTimeOut";
+  static const double cardBorderRadius = 8;
+  static const String defaultErrorMessage = "Something went wrong!";
+
+  static const String textTypingSomething = "Try typing something!";
+  static const String textSearch = "Search";
+  static const String textSearchLocation = "Search location";
+  static const String textAvailable = "available";
+  static const String textNoStationResult = "We couldn't find any stations!";
 }
