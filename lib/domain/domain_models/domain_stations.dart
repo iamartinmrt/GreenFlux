@@ -20,7 +20,7 @@ class DomainEvses with _$DomainEvses{
   const factory DomainEvses({
     required String evseId,
     required EvsesStatus status,
-    required String connectorType,
+    required EvsesConnectorType connectorType,
     required EvsesPowerType powerType,
   }) = _domainEvses;
 }

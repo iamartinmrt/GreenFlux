@@ -13,4 +13,8 @@ class Constants{
   static const String textSearchLocation = "Search location";
   static const String textAvailable = "available";
   static const String textNoStationResult = "We couldn't find any stations!";
+  static const String textAvailableEvses = "Available";
+  static const String textUnavailableEvses = "Unavailable";
+  static const String textRoute = "Route";
+  static const String textBack = "Back";
 }

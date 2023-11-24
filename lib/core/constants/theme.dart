@@ -12,6 +12,20 @@ class CustomTheme{
         elevation: 0,
         backgroundColor: ColorPalette.primary,
         disabledBackgroundColor: ColorPalette.primary,
+        foregroundColor: ColorPalette.black,
+      )
+    ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        side: const BorderSide(
+          color: ColorPalette.black,
+          width: 1
+        ),
+        elevation: 0,
+        foregroundColor: ColorPalette.black,
       )
     )
   );
