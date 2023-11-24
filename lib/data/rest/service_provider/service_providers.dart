@@ -40,7 +40,7 @@ final serviceDioProvider = Provider<Dio>((ref) {
     },
     onError: (error, handler) {
       _logError(error.requestOptions.baseUrl, error.requestOptions.path,
-          error.error.toString());
+          error.error.toString(), error.response?.data.toString());
       return handler.next(error);
     },
   ));
@@ -60,9 +60,9 @@ void _logResponse(String url, String path, String header, String body) {
   GfLogger.logInfo(printText);
 }
 
-void _logError(String url, String path, String error) {
+void _logError(String url, String path, String error, String? errorResponse) {
   final String printText =
-      "*** API Error ***\nURL ====> $url$path\nError ===> $error";
+      "*** API Error ***\nURL ====> $url$path\nError ===> $error\nError Response ===> $errorResponse";
   GfLogger.logError(printText);
 }
 

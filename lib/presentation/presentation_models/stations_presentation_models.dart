@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:green_flux/core/constants/enums.dart';
+import 'package:green_flux/core/network/network_response.dart';
+import 'package:green_flux/domain/domain_models/domain_stations.dart';
 
 part 'stations_presentation_models.freezed.dart';
 
@@ -25,4 +27,12 @@ class StationLocationQuickPreview with _$StationLocationQuickPreview{
     required String availableEvses,
     required StationStatus status,
   }) = _stationLocationQuickPreview;
+}
+
+@freezed
+class StationsListSearchResponse with _$StationsListSearchResponse{
+  const factory StationsListSearchResponse({
+    required NetworkResponse<List<DomainStations>> networkResponse,
+    required String searchText,
+}) = _stationsListSearchResponse;
 }

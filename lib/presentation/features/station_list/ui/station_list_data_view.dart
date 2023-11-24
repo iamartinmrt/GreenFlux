@@ -13,18 +13,46 @@ class StationListDataView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: ListView.builder(
-        primary: false,
-        shrinkWrap: true,
-        itemCount: stations.length,
-        itemBuilder: (context, index) {
-          return _StationItemPreview(stations[index]);
-        },
+    if(stations.isEmpty){
+      return const _StationListEmpty();
+    }else{
+      return Flexible(
+        child: ListView.builder(
+          primary: false,
+          shrinkWrap: true,
+          itemCount: stations.length,
+          itemBuilder: (context, index) {
+            return _StationItemPreview(stations[index]);
+          },
+        ),
+      );
+    }
+  }
+}
+
+class _StationListEmpty extends StatelessWidget {
+  const _StationListEmpty({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(Assets.noResultIcon, width: 70, height: 70),
+            const Padding(
+              padding: EdgeInsets.only(top: 16),
+              child: Text(Constants.textNoStationResult, style: TextStyles.header1),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
+
 
 class _StationItemPreview extends StatelessWidget {
   final StationLocationQuickPreview station;
@@ -78,7 +106,7 @@ class _StationItemPreview extends StatelessWidget {
                         child: Visibility(
                           visible: station.totalEvses.isNotEmpty,
                           child: Text(
-                              "${station.availableEvses} / ${station.totalEvses} available",
+                              "${station.availableEvses} / ${station.totalEvses} ${Constants.textAvailable}",
                               style: TextStyles.body1),
                         ),
                       ),
