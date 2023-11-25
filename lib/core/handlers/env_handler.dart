@@ -1,6 +1,6 @@
 import 'package:green_flux/core/handlers/env_properties.dart';
 
-class EnvHandler{
+class EnvHandler {
   late EnvProperties envProperties;
 
   EnvHandler._();

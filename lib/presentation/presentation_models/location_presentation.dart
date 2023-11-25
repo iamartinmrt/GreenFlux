@@ -4,7 +4,6 @@ part 'location_presentation.freezed.dart';
 
 @freezed
 class LocationState with _$LocationState {
-
   const factory LocationState.denied() = _locationStateDenied;
 
   const factory LocationState.granted({
@@ -12,7 +11,7 @@ class LocationState with _$LocationState {
   }) = _locationStateGranted;
 }
 
-class LatLonData{
+class LatLonData {
   final double lat;
   final double lon;
 

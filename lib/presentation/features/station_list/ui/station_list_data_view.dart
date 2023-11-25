@@ -46,8 +46,7 @@ class _StationListEmpty extends StatelessWidget {
             Image.asset(Assets.noResultIcon, width: 70, height: 70),
             const Padding(
               padding: EdgeInsets.only(top: 16),
-              child: Text(Constants.textNoStationResult,
-                  style: TextStyles.header1),
+              child: Text(Constants.textNoStationResult, style: TextStyles.header1),
             ),
           ],
         ),
@@ -64,9 +63,7 @@ class _StationItemPreview extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
-      onTap: () => ref
-          .read(stateStationsProvider.notifier)
-          .onStationTap(station.address),
+      onTap: () => ref.read(stateStationsProvider.notifier).onStationTap(station.address),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Container(
@@ -93,17 +90,14 @@ class _StationItemPreview extends ConsumerWidget {
                   children: [
                     Visibility(
                       visible: (station.status == StationStatus.available),
-                      replacement: Image.asset(Assets.chargingStatus,
-                          width: 35, height: 35),
-                      child: Image.asset(Assets.availableStatus,
-                          width: 35, height: 35),
+                      replacement: Image.asset(Assets.chargingStatus, width: 35, height: 35),
+                      child: Image.asset(Assets.availableStatus, width: 35, height: 35),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8),
                       child: Hero(
                         tag: "${station.address}-distance",
-                        child: Text(station.distance ?? "",
-                            style: Theme.of(context).textTheme.bodySmall),
+                        child: Text(station.distance ?? "", style: Theme.of(context).textTheme.bodySmall),
                       ),
                     ),
                   ],
@@ -116,25 +110,20 @@ class _StationItemPreview extends ConsumerWidget {
                       children: [
                         Hero(
                           tag: "${station.address}-address",
-                          child: Text(station.address,
-                              style: Theme.of(context).textTheme.titleMedium,
-                              overflow: TextOverflow.ellipsis),
+                          child: Text(station.address, style: Theme.of(context).textTheme.titleMedium, overflow: TextOverflow.ellipsis),
                         ),
                         Hero(
                           tag: "${station.address}-location",
                           child: Padding(
                             padding: const EdgeInsets.only(top: 4),
-                            child: Text(station.city,
-                                style: Theme.of(context).textTheme.bodyMedium,
-                                overflow: TextOverflow.ellipsis),
+                            child: Text(station.city, style: Theme.of(context).textTheme.bodyMedium, overflow: TextOverflow.ellipsis),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 8),
                           child: Visibility(
                             visible: station.totalEvses.isNotEmpty,
-                            child: Text(
-                                "${station.availableEvses} / ${station.totalEvses} ${Constants.textAvailable}",
+                            child: Text("${station.availableEvses} / ${station.totalEvses} ${Constants.textAvailable}",
                                 style: TextStyles.body1),
                           ),
                         ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:green_flux/core/color/color_palette.dart';
 import 'package:green_flux/core/constants/constants.dart';
@@ -16,9 +15,11 @@ class StationListSearchBar extends ConsumerStatefulWidget {
 class _StationListSearchBarState extends ConsumerState<StationListSearchBar> {
   late TextEditingController _searchController;
 
-  bool get _isSearchBarInteractive => ref.watch(stateStationsProvider).whenOrNull(
-    loading: (isLockUser) => !isLockUser,
-  ) ?? true;
+  bool get _isSearchBarInteractive =>
+      ref.watch(stateStationsProvider).whenOrNull(
+            loading: (isLockUser) => !isLockUser,
+          ) ??
+      true;
 
   Color get _bgColor => ref.watch(stateStationsProvider).when(
         idle: () => ColorPalette.secondary,
@@ -55,7 +56,7 @@ class _StationListSearchBarState extends ConsumerState<StationListSearchBar> {
                 Expanded(
                   child: TextField(
                     textInputAction: TextInputAction.search,
-                    onSubmitted: (value){
+                    onSubmitted: (value) {
                       FocusScope.of(context).unfocus();
                     },
                     readOnly: !_isSearchBarInteractive,
@@ -66,21 +67,21 @@ class _StationListSearchBarState extends ConsumerState<StationListSearchBar> {
                       hintStyle: TextStyles.body2,
                       hintText: Constants.textSearchLocation,
                     ),
-                    onChanged: (newSearch) => ref
-                        .read(stateStationsProvider.notifier)
-                        .onNewTextSearched(newSearch),
+                    onChanged: (newSearch) => ref.read(stateStationsProvider.notifier).onNewTextSearched(newSearch),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 8),
                   child: ElevatedButton(
-                    onPressed: _isSearchBarInteractive ? () {
-                      FocusScope.of(context).unfocus();
-                      ref.read(stateStationsProvider.notifier).onSearch(_searchController.text, false);
-                    } : null,
+                    onPressed: _isSearchBarInteractive
+                        ? () {
+                            FocusScope.of(context).unfocus();
+                            ref.read(stateStationsProvider.notifier).onSearch(_searchController.text, false);
+                          }
+                        : null,
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8),
                       ),
                     ),
                     child: const Text(Constants.textSearch, style: TextStyles.body1),

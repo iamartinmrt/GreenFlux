@@ -3,13 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:green_flux/core/color/color_palette.dart';
 import 'package:green_flux/core/constants/assets.dart';
 import 'package:green_flux/core/constants/constants.dart';
-import 'package:simple_animations/simple_animations.dart';
 import 'package:green_flux/core/router/router.dart';
 import 'package:green_flux/presentation/features/station_detail/ui/station_detail_connectors_view.dart';
 import 'package:green_flux/presentation/features/station_list/logic/state_stations_provider.dart';
 import 'package:green_flux/presentation/presentation_models/stations_presentation_models.dart';
 import 'package:green_flux/presentation/shared_ui/primary_button.dart';
 import 'package:green_flux/presentation/shared_ui/secondary_button.dart';
+import 'package:simple_animations/simple_animations.dart';
 
 class StationDetailPage extends ConsumerWidget {
   final StationDetail stationDetail;
@@ -77,7 +77,7 @@ class StationDetailPage extends ConsumerWidget {
                 child: TweenAnimationBuilder<double>(
                   tween: _connectorsAnimation,
                   duration: const Duration(milliseconds: 500),
-                  builder: (context, double value, child){
+                  builder: (context, double value, child) {
                     return Opacity(
                       opacity: value,
                       child: child,

@@ -15,34 +15,32 @@ final routerProvider = Provider(
     routes: [
       ShellRoute(
         navigatorKey: _key,
-        builder: (context, state, child){
+        builder: (context, state, child) {
           return HeroControllerScope(
             controller: MaterialApp.createMaterialHeroController(),
             child: Scaffold(body: child),
           );
         },
         routes: [
-        GoRoute(
-          path: Constants.routeStationList,
-          pageBuilder: (context, state) => const MaterialPage(
-            child: StationListPage(),
-          ),
-          routes: [
-            GoRoute(
-              path: Constants.routeStationDetail,
-              parentNavigatorKey: _rootNavigatorKey,
-              pageBuilder: (context, state) => CustomTransitionPage<void>(
-                transitionDuration: const Duration(milliseconds: 300),
-                key: state.pageKey,
-                child: StationDetailPage(state.extra as StationDetail),
-                transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-                    FadeTransition(opacity: animation, child: child),
-              ),
-            ),
-          ]
-        ),
-
-      ],)
+          GoRoute(
+              path: Constants.routeStationList,
+              pageBuilder: (context, state) => const MaterialPage(
+                    child: StationListPage(),
+                  ),
+              routes: [
+                GoRoute(
+                  path: Constants.routeStationDetail,
+                  parentNavigatorKey: _rootNavigatorKey,
+                  pageBuilder: (context, state) => CustomTransitionPage<void>(
+                    transitionDuration: const Duration(milliseconds: 300),
+                    key: state.pageKey,
+                    child: StationDetailPage(state.extra as StationDetail),
+                    transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(opacity: animation, child: child),
+                  ),
+                ),
+              ]),
+        ],
+      )
     ],
     initialLocation: Constants.routeStationList,
   ),

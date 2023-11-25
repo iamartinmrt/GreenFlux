@@ -1,6 +1,5 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:green_flux/presentation/presentation_models/location_presentation.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:green_flux/presentation/presentation_models/location_presentation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'location_provider.g.dart';

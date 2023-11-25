@@ -4,7 +4,7 @@ import 'package:green_flux/core/constants/enums.dart';
 part 'domain_stations.freezed.dart';
 
 @freezed
-class DomainStations with _$DomainStations{
+class DomainStations with _$DomainStations {
   const factory DomainStations({
     required String address,
     required String city,
@@ -16,7 +16,7 @@ class DomainStations with _$DomainStations{
 }
 
 @freezed
-class DomainEvses with _$DomainEvses{
+class DomainEvses with _$DomainEvses {
   const factory DomainEvses({
     required String evseId,
     required EvsesStatus status,

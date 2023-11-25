@@ -21,7 +21,7 @@ class StationListLoadingView extends StatelessWidget {
               visible: isLockUser,
               child: const Padding(
                 padding: EdgeInsets.only(top: 8),
-                child:  Text(Constants.textTryingFetchUserLocation),
+                child: Text(Constants.textTryingFetchUserLocation),
               ),
             ),
           ],

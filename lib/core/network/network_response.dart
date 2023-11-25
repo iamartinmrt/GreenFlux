@@ -6,6 +6,8 @@ part 'network_response.freezed.dart';
 @Freezed(genericArgumentFactories: true)
 class NetworkResponse<T> with _$NetworkResponse<T> {
   const factory NetworkResponse.success(T data) = _data;
+
   const factory NetworkResponse.error(ErrorResponse error) = _error;
+
   const factory NetworkResponse.canceled() = _canceled;
 }
