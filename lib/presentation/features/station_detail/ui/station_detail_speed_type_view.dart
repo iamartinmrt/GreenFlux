@@ -7,6 +7,7 @@ import 'package:green_flux/presentation/presentation_models/stations_presentatio
 
 class StationDetailSpeedTypeView extends StatelessWidget {
   final List<SpeedTypeListing> speedTypes;
+
   const StationDetailSpeedTypeView(this.speedTypes, {super.key});
 
   @override
@@ -42,9 +43,7 @@ class StationDetailSpeedTypeView extends StatelessWidget {
                       textAlign: TextAlign.end,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyles.body1.copyWith(
-                          color: _getAvailabilityColor(
-                              e.evsesStatuses)),
+                      style: TextStyles.body1.copyWith(color: _getAvailabilityColor(e.evsesStatuses)),
                     ),
                   ),
                 ],
@@ -56,18 +55,14 @@ class StationDetailSpeedTypeView extends StatelessWidget {
     );
   }
 
-  String _getAvailabilityCount(List<EvsesStatus> evsesList){
+  String _getAvailabilityCount(List<EvsesStatus> evsesList) {
     final int available = evsesList.where((e) => e == EvsesStatus.available).length;
     return "$available / ${evsesList.length}";
   }
 
   String _getAvailabilityText(List<EvsesStatus> evsesList) =>
-      evsesList.any((element) => element == EvsesStatus.available)
-          ? Constants.textAvailableEvses
-          : Constants.textUnavailableEvses;
+      evsesList.any((element) => element == EvsesStatus.available) ? Constants.textAvailableEvses : Constants.textUnavailableEvses;
 
   Color _getAvailabilityColor(List<EvsesStatus> evsesList) =>
-      evsesList.any((element) => element == EvsesStatus.available)
-          ? ColorPalette.primary
-          : ColorPalette.errorRed;
+      evsesList.any((element) => element == EvsesStatus.available) ? ColorPalette.primary : ColorPalette.errorRed;
 }

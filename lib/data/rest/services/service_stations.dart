@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:green_flux/core/constants/constants.dart';
 import 'package:green_flux/data/rest/data_models/stations_data_models.dart';
-import 'package:retrofit/http.dart';
 import 'package:retrofit/dio.dart';
+import 'package:retrofit/http.dart';
 
 part 'service_stations.g.dart';
 

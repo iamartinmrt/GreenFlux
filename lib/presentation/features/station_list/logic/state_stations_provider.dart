@@ -1,21 +1,19 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:green_flux/core/constants/constants.dart';
 import 'package:green_flux/core/handlers/url_handler.dart';
-import 'package:green_flux/core/logger/gf_logger.dart';
 import 'package:green_flux/core/mapper/stations_mapping.dart';
 import 'package:green_flux/core/router/router.dart';
 import 'package:green_flux/domain/domain_models/domain_stations.dart';
 import 'package:green_flux/domain/repositories/stations_repository.dart';
 import 'package:green_flux/presentation/presentation_models/location_presentation.dart';
 import 'package:green_flux/presentation/presentation_models/stations_presentation_models.dart';
-import 'package:collection/collection.dart';
-import 'package:geocoding/geocoding.dart';
 import 'package:green_flux/presentation/shared_logic/location_provider.dart';
 
-final stateStationsProvider =
-    StateNotifierProvider<StationsStateNotifier, StationsList>((ref) {
+final stateStationsProvider = StateNotifierProvider<StationsStateNotifier, StationsList>((ref) {
   return StationsStateNotifier(ref, ref.watch(stationsRepositoryProvider));
 });
 
@@ -27,8 +25,7 @@ class StationsStateNotifier extends StateNotifier<StationsList> {
   final Ref ref;
   List<DomainStations> _fetchedStations = [];
 
-  StationsStateNotifier(this.ref, this._repository)
-      : super(const StationsList.loading(isLockUser: true)) {
+  StationsStateNotifier(this.ref, this._repository) : super(const StationsList.loading(isLockUser: true)) {
     _initialFetchingStationsByUserLocation();
   }
 
@@ -73,19 +70,14 @@ class StationsStateNotifier extends StateNotifier<StationsList> {
     final response = await _repository.getStationsList(search);
 
     if (response.searchText == _previousSearch) {
-      response.networkResponse.whenOrNull(
-          success: (List<DomainStations> listStations) {
+      response.networkResponse.whenOrNull(success: (List<DomainStations> listStations) {
         _fetchedStations = listStations;
         // Don't emit down empty station list to UI if fetched on app initialization
         if (isInitialFetch && listStations.isEmpty) {
           state = const StationsList.idle();
         } else {
-          final LatLonData? latLon = ref
-              .read(stateLocationProvider)
-              .whenOrNull(data: (d) => d.whenOrNull(granted: (loc) => loc));
-          state = StationsList.data(
-              addresses: StationsMapping.convertDomainStationsToStationPreview(
-                  listStations, latLon));
+          final LatLonData? latLon = ref.read(stateLocationProvider).whenOrNull(data: (d) => d.whenOrNull(granted: (loc) => loc));
+          state = StationsList.data(addresses: StationsMapping.convertDomainStationsToStationPreview(listStations, latLon));
         }
       }, error: (error) {
         _fetchedStations = [];
@@ -104,20 +96,13 @@ class StationsStateNotifier extends StateNotifier<StationsList> {
   }
 
   onStationTap(String selectedAddress) {
-    final DomainStations? domainStation = _fetchedStations
-        .firstWhereOrNull((e) => (e.address == selectedAddress));
+    final DomainStations? domainStation = _fetchedStations.firstWhereOrNull((e) => (e.address == selectedAddress));
     if (domainStation != null) {
-      final LatLonData? latLon = ref
-          .read(stateLocationProvider)
-          .whenOrNull(data: (d) => d.whenOrNull(granted: (loc) => loc));
+      final LatLonData? latLon = ref.read(stateLocationProvider).whenOrNull(data: (d) => d.whenOrNull(granted: (loc) => loc));
 
-      final StationDetail stationDetail =
-          StationsMapping.convertDomainStationToStationDetail(
-              domainStation, latLon);
+      final StationDetail stationDetail = StationsMapping.convertDomainStationToStationDetail(domainStation, latLon);
 
-      ref.read(routerProvider).push(
-          "${Constants.routeStationList}/${Constants.routeStationDetail}",
-          extra: stationDetail);
+      ref.read(routerProvider).push("${Constants.routeStationList}/${Constants.routeStationDetail}", extra: stationDetail);
     }
   }
 
@@ -125,7 +110,6 @@ class StationsStateNotifier extends StateNotifier<StationsList> {
   /// And update the list with the data that they have searched for
   onNewTextSearched(String newSearch) {
     if (_timer?.isActive ?? false) _timer?.cancel();
-    _timer = Timer(Duration(milliseconds: _searchGapTime),
-        () => onSearch(newSearch, false));
+    _timer = Timer(Duration(milliseconds: _searchGapTime), () => onSearch(newSearch, false));
   }
 }
