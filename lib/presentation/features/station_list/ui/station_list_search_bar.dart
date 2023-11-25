@@ -17,7 +17,7 @@ class _StationListSearchBarState extends ConsumerState<StationListSearchBar> {
   late TextEditingController _searchController;
 
   bool get _isSearchBarInteractive => ref.watch(stateStationsProvider).whenOrNull(
-    loading: (isLockUser) => isLockUser,
+    loading: (isLockUser) => !isLockUser,
   ) ?? true;
 
   Color get _bgColor => ref.watch(stateStationsProvider).when(
@@ -54,7 +54,11 @@ class _StationListSearchBarState extends ConsumerState<StationListSearchBar> {
               children: [
                 Expanded(
                   child: TextField(
-                    readOnly: _isSearchBarInteractive,
+                    textInputAction: TextInputAction.search,
+                    onSubmitted: (value){
+                      FocusScope.of(context).unfocus();
+                    },
+                    readOnly: !_isSearchBarInteractive,
                     controller: _searchController,
                     decoration: const InputDecoration(
                       border: InputBorder.none,

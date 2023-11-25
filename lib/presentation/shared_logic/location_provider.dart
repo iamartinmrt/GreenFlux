@@ -5,7 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'location_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class StateLocation extends _$StateLocation {
   @override
   FutureOr<LocationState> build() async {

@@ -10,25 +10,23 @@ class StationDetailConnectorsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.only(top: 24),
-        child: ListView(
-          children: [
-            ...connectors.map((e) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 16),
-                    child: Text(e.connectorType, style: TextStyles.title1),
-                  ),
-                  StationDetailSpeedTypeView(e.speedTypes),
-                ],
-              );
-            }),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.only(top: 24),
+      child: ListView(
+        children: [
+          ...connectors.map((e) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 16),
+                  child: Text(e.connectorType, style: TextStyles.title1),
+                ),
+                StationDetailSpeedTypeView(e.speedTypes),
+              ],
+            );
+          }),
+        ],
       ),
     );
   }
