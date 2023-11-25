@@ -17,4 +17,5 @@ class Constants{
   static const String textUnavailableEvses = "Unavailable";
   static const String textRoute = "Route";
   static const String textBack = "Back";
+  static const String textTryingFetchUserLocation = "Trying to fetch user location...";
 }
