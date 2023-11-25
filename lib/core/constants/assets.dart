@@ -1,5 +1,4 @@
-class Assets{
-
+class Assets {
   static String get availableStatus => getCommonResources("available_status");
 
   static String get chargingStatus => getCommonResources("charging_status");
@@ -14,5 +13,5 @@ class Assets{
 
   static String get routing => getCommonResources("routing");
 
-  static String getCommonResources(String img)=> "assets/images/$img.png";
+  static String getCommonResources(String img) => "assets/images/$img.png";
 }

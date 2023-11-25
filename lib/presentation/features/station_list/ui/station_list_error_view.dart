@@ -4,6 +4,7 @@ import 'package:green_flux/core/constants/text_styles.dart';
 
 class StationListErrorView extends StatelessWidget {
   final String errorText;
+
   const StationListErrorView(this.errorText, {super.key});
 
   @override

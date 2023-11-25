@@ -10,16 +10,16 @@ class ErrorResponse with _$ErrorResponse {
     @Default(Constants.defaultErrorMessage) String message,
   }) = _errorResponse;
 
-  factory ErrorResponse.fromDio(Object? obj){
-    if(obj == null){
+  factory ErrorResponse.fromDio(Object? obj) {
+    if (obj == null) {
       return const ErrorResponse();
     }
-    switch(obj.runtimeType){
+    switch (obj.runtimeType) {
       case DioException:
-        try{
+        try {
           final errorMsg = (obj as DioException).response?.data ?? Constants.defaultErrorMessage;
           return ErrorResponse(message: errorMsg);
-        }catch(_){
+        } catch (_) {
           return const ErrorResponse();
         }
       default:

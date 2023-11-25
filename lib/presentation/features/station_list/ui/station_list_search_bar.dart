@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:green_flux/core/color/color_palette.dart';
 import 'package:green_flux/core/constants/constants.dart';
@@ -57,9 +56,7 @@ class _StationListSearchBarState extends ConsumerState<StationListSearchBar> {
                       hintStyle: TextStyles.body2,
                       hintText: Constants.textSearchLocation,
                     ),
-                    onChanged: (newSearch) => ref
-                        .read(stateStationsProvider.notifier)
-                        .onNewTextSearched(newSearch),
+                    onChanged: (newSearch) => ref.read(stateStationsProvider.notifier).onNewTextSearched(newSearch),
                   ),
                 ),
                 Padding(
@@ -71,7 +68,7 @@ class _StationListSearchBarState extends ConsumerState<StationListSearchBar> {
                     },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8),
                       ),
                     ),
                     child: const Text(Constants.textSearch, style: TextStyles.body1),

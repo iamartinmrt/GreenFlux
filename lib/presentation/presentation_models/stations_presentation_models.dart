@@ -39,7 +39,7 @@ class StationsListSearchResponse with _$StationsListSearchResponse {
 }
 
 @freezed
-class StationDetail with _$StationDetail{
+class StationDetail with _$StationDetail {
   const factory StationDetail({
     required String address,
     required String location,
@@ -47,7 +47,7 @@ class StationDetail with _$StationDetail{
     required List<ConnectorTypeListing> connectorList,
     required double lat,
     required double lon,
-}) = _stationDetail;
+  }) = _stationDetail;
 }
 
 @freezed

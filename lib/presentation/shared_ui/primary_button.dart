@@ -24,9 +24,7 @@ class PrimaryButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            if(icon != null)...[
-              Image.asset(icon!, width: 17, height: 17, color: ColorPalette.black)
-            ],
+            if (icon != null) ...[Image.asset(icon!, width: 17, height: 17, color: ColorPalette.black)],
             Padding(
               padding: const EdgeInsets.only(left: 8),
               child: Text(text),
