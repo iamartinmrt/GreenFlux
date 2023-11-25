@@ -9,7 +9,7 @@ part 'stations_presentation_models.freezed.dart';
 class StationsList with _$StationsList {
   const factory StationsList.idle() = _idle;
 
-  const factory StationsList.loading() = _loading;
+  const factory StationsList.loading({required bool isLockUser}) = _loading;
 
   const factory StationsList.error({required String error}) = _error;
 

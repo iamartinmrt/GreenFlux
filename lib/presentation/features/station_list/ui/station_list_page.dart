@@ -20,7 +20,7 @@ class StationListPage extends ConsumerWidget {
           const StationListSearchBar(),
           ref.watch(stateStationsProvider).when(
             idle: () => const StationListIdleView(),
-            loading: () => const StationListLoadingView(),
+            loading: (isLockUser) => StationListLoadingView(isLockUser),
             error: (error) => StationListErrorView(error),
             data: (List<StationLocationQuickPreview> previews) =>
                 StationListDataView(previews),

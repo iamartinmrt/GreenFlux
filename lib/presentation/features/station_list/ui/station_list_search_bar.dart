@@ -16,9 +16,13 @@ class StationListSearchBar extends ConsumerStatefulWidget {
 class _StationListSearchBarState extends ConsumerState<StationListSearchBar> {
   late TextEditingController _searchController;
 
+  bool get _isSearchBarInteractive => ref.watch(stateStationsProvider).whenOrNull(
+    loading: (isLockUser) => !isLockUser,
+  ) ?? true;
+
   Color get _bgColor => ref.watch(stateStationsProvider).when(
         idle: () => ColorPalette.secondary,
-        loading: () => ColorPalette.description,
+        loading: (_) => ColorPalette.description,
         error: (_) => ColorPalette.errorRed,
         data: (_) => ColorPalette.description,
       );
@@ -50,6 +54,11 @@ class _StationListSearchBarState extends ConsumerState<StationListSearchBar> {
               children: [
                 Expanded(
                   child: TextField(
+                    textInputAction: TextInputAction.search,
+                    onSubmitted: (value){
+                      FocusScope.of(context).unfocus();
+                    },
+                    readOnly: !_isSearchBarInteractive,
                     controller: _searchController,
                     decoration: const InputDecoration(
                       border: InputBorder.none,
@@ -65,10 +74,10 @@ class _StationListSearchBarState extends ConsumerState<StationListSearchBar> {
                 Padding(
                   padding: const EdgeInsets.only(left: 8),
                   child: ElevatedButton(
-                    onPressed: () {
+                    onPressed: _isSearchBarInteractive ? () {
                       FocusScope.of(context).unfocus();
-                      ref.read(stateStationsProvider.notifier).onSearch(_searchController.text);
-                    },
+                      ref.read(stateStationsProvider.notifier).onSearch(_searchController.text, false);
+                    } : null,
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),

@@ -24,7 +24,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.amin.sajadi.green_flux"
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 33
     ndkVersion flutter.ndkVersion
 
     compileOptions {

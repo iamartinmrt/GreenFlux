@@ -1,6 +1,8 @@
 import 'package:green_flux/core/constants/enums.dart';
+import 'package:green_flux/core/handlers/location_handler.dart';
 import 'package:green_flux/data/rest/data_models/stations_data_models.dart';
 import 'package:green_flux/domain/domain_models/domain_stations.dart';
+import 'package:green_flux/presentation/presentation_models/location_presentation.dart';
 import 'package:green_flux/presentation/presentation_models/stations_presentation_models.dart';
 import 'package:collection/collection.dart';
 
@@ -18,7 +20,8 @@ class StationsMapping {
             .map((e) => DomainEvses(
                   evseId: e.evseId,
                   status: EvsesStatus.findStatus(e.status),
-                  connectorType: EvsesConnectorType.findConnectorType(e.connectorType),
+                  connectorType:
+                      EvsesConnectorType.findConnectorType(e.connectorType),
                   powerType: EvsesPowerType.findPowerType(e.powerType),
                 ))
             .toList(),
@@ -27,15 +30,21 @@ class StationsMapping {
   }
 
   static List<StationLocationQuickPreview>
-      convertDomainStationsToStationPreview(List<DomainStations> domainList) {
+      convertDomainStationsToStationPreview(
+          List<DomainStations> domainList, LatLonData? latLon) {
     return domainList.map((e) {
       final int totalEvses = e.evses.length;
       final int availableEvses =
           e.evses.where((e) => e.status == EvsesStatus.available).length;
+      String? distance;
+      if (latLon != null) {
+        distance = LocationHandler.calculateDistance(
+            latLon, LatLonData(lat: e.lat, lon: e.lon));
+      }
       return StationLocationQuickPreview(
         address: e.address,
         city: e.city,
-        distance: "12.6 km",
+        distance: distance,
         totalEvses: totalEvses.toString(),
         status: availableEvses > (totalEvses / 2)
             ? StationStatus.available
@@ -46,9 +55,14 @@ class StationsMapping {
   }
 
   static StationDetail convertDomainStationToStationDetail(
-      DomainStations domainStations, String distance) {
-
+      DomainStations domainStations, LatLonData? latLon) {
     final connectorType = groupConnectorsBy(domainStations);
+
+    String? distance;
+    if (latLon != null) {
+      distance = LocationHandler.calculateDistance(
+          latLon, LatLonData(lat: domainStations.lat, lon: domainStations.lon));
+    }
 
     return StationDetail(
       address: domainStations.address,
