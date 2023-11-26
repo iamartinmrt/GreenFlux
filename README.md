@@ -11,6 +11,10 @@ Hello and welcome to this project. Here are some of the things I've used for thi
 - Retrofit: Handling data layer API calls
 - Geolocator/Geocoder: Getting user location and finding the city based on coordinate
 
+# 🤔 How to start?
+You need to run this command on your terminal on your project's root directory to generate the auto-generated files:
+`flutter pub run build_runner build --delete-conflicting-outputs`
+
 # 🏗️ Architecture
 It's "Clean architecture" (Uncle bob). I tried to separate the code into 3 layers of:
 - Data
