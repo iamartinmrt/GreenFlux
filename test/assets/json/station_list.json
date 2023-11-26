@@ -1,0 +1,482 @@
+[
+  {
+    "address": "Address534 1",
+    "city": "Amsterdam",
+    "country": "NLD",
+    "latitude": 19.06593,
+    "longitude": -98.13851,
+    "evses": [
+      {
+        "evseId": "NL-GFX-EHSP-CHRG-20220126-1337-1",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_1_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-EHSP-CHRG-20220126-1244-1",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_1_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-EHSP-CHRG-20220126-1",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_1_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-EHSP-CHRG-20220426-1",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_1_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-EHSP-CHRG-20220518-1",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      }
+    ]
+  },
+  {
+    "address": "Address809 13",
+    "city": "Amsterdam",
+    "country": "NLD",
+    "latitude": 52.3102,
+    "longitude": 4.8822,
+    "evses": [
+      {
+        "evseId": "NL*GFX*EPP001451*1",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      }
+    ]
+  },
+  {
+    "address": "Address181 876",
+    "city": "Amsterdam",
+    "country": "NLD",
+    "latitude": 52.195252,
+    "longitude": 5.962994,
+    "evses": [
+      {
+        "evseId": "NL*GFX*ENL*GFX*TEST1007*1",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      }
+    ]
+  },
+  {
+    "address": "Address710 486",
+    "city": "Amsterdam",
+    "country": "NLD",
+    "latitude": 52.37307,
+    "longitude": 4.8943,
+    "evses": [
+      {
+        "evseId": "NL-GFX-EHSP-CHRG-20210922-1",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_1_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-EAZHIN1-1",
+        "status": "AVAILABLE",
+        "connectorType": "CHADEMO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL-GFX-EET-CP-022-1",
+        "status": "CHARGING",
+        "connectorType": "CHADEMO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL-GFX-EET-CP-022-2",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL-GFX-EET-CP-022-3",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL-GFX-EET-CP-022-4",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL-GFX-EET-CP-022-5",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL-GFX-EET-CP-022-6",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL-GFX-EET-CP-022-7",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL-GFX-EET-CP-022-8",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL-GFX-EET-CP-022-9",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL-GFX-EET-CP-022-10",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL-GFX-EET-CP-022-11",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL-GFX-EET-CP-022-12",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL-GFX-EET-CP-022-13",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL-GFX-EET-CP-022-14",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL-GFX-EET-CP-022-15",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL-GFX-EET-CP-022-16",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      }
+    ]
+  },
+  {
+    "address": "Address890 818",
+    "city": "Amsterdam",
+    "country": "NLD",
+    "latitude": 52.3611,
+    "longitude": 4.9447,
+    "evses": [
+      {
+        "evseId": "NL*GFX*EITXCStestflow220106test*1",
+        "status": "CHARGING",
+        "connectorType": "CHADEMO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL*GFX*EITX2342234243*1",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL*GFX*EITX2342234243*2",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL*GFX*E*BE*GFX*RD00326*1",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL*GFX*E*BE*GFX*RD00326*2",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL*GFX*E*BE*GFX*RD00326*3",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_1_PHASE"
+      },
+      {
+        "evseId": "NL*GFX*E*BE*GFX*RD00326*4",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL*GFX*E*BE*GFX*RD00326*9",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL*GFX*E*BE*GFX*RD00326*8",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL*GFX*E*BE*GFX*RD00326*7",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL*GFX*E*BE*GFX*RD00326*6",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL*GFX*E*BE*GFX*RD00326*5",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_1_PHASE"
+      },
+      {
+        "evseId": "NL*GFX*E*BE*GFX*RD00326*10",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL*GFX*E*BE*GFX*RD00326*11",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL*GFX*EWRT*00009*1",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL*GFX*EWRT*00009*2",
+        "status": "CHARGING",
+        "connectorType": "CHADEMO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL*GFX*EBluecharge*1",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      },
+      {
+        "evseId": "NL*GFX*EBluecharge*2",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      }
+    ]
+  },
+  {
+    "address": "Address966 417",
+    "city": "Amsterdam",
+    "country": "NLD",
+    "latitude": 52.3394,
+    "longitude": 4.9625,
+    "evses": [
+      {
+        "evseId": "NL*GFX*ECOTAP001*1",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL*GFX*ECOTAP001*2",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_1_PHASE"
+      },
+      {
+        "evseId": "NL*GFX*ECOTAP001*3",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T1_COMBO",
+        "powerType": "DC"
+      }
+    ]
+  },
+  {
+    "address": "Mauritskade 24",
+    "city": "Amsterdam",
+    "country": "NLD",
+    "latitude": 52.36113,
+    "longitude": 4.91477,
+    "evses": [
+      {
+        "evseId": "NL*GFX*E*T00003*1",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL*GFX*E*H00004*1",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL*GFX*E*H00004*2",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      }
+    ]
+  },
+  {
+    "address": "Damrak123 26",
+    "city": "Amsterdam",
+    "country": "NLD",
+    "latitude": 52.37317,
+    "longitude": 4.89066,
+    "evses": [
+      {
+        "evseId": "NL*GFX*ETEST98362*1",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_1_PHASE"
+      }
+    ]
+  },
+  {
+    "address": "Address987 294",
+    "city": "Amsterdam",
+    "country": "NLD",
+    "latitude": 52.3981,
+    "longitude": 4.8751,
+    "evses": [
+      {
+        "evseId": "NL*GFX*EWS*1337*2",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL*GFX*EWS*1337*1",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      }
+    ]
+  },
+  {
+    "address": "Address786 676",
+    "city": "Amsterdam",
+    "country": "NLD",
+    "latitude": 52.36171,
+    "longitude": 4.92381,
+    "evses": [
+      {
+        "evseId": "NL-GFX-ENL-GFX-RD00330-1",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-ENL-GFX-RD00330-2",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-ERamanTestCp-1",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T1",
+        "powerType": "AC_1_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-ERamanTestCp-2",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_1_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-EPP004251-1",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-EPP004251-2",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-ETST-SMRTC-4-1",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-ETST-SMRTC-4-2",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-ETST-SMRTC-6-1",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-ETST-SMRTC-6-2",
+        "status": "AVAILABLE",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-EDZM-TEST-1",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_3_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-EGFX-MCTEST-26062020-1",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2",
+        "powerType": "AC_1_PHASE"
+      },
+      {
+        "evseId": "NL-GFX-EGFX-MCTEST-26062020-2",
+        "status": "CHARGING",
+        "connectorType": "IEC_62196_T2_COMBO",
+        "powerType": "DC"
+      }
+    ]
+  }
+]

@@ -54,7 +54,7 @@ void _logError(String url, String path, String error, String? errorResponse) {
   GfLogger.logError(printText);
 }
 
-final serviceStationsProvider = Provider((ref) {
+final serviceStationsProvider = Provider<FacadeStationsService>((ref) {
   return StationsService(
     ref.watch(serviceDioProvider),
     baseUrl: ref.read(baseUrlProvider),
