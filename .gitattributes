@@ -1,0 +1,2 @@
+*.run.xml filter=git-crypt diff=git-crypt
+configs/** filter=git-crypt diff=git-crypt
