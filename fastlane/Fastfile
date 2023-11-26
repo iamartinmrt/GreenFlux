@@ -26,12 +26,14 @@ private_lane :create_dev_build do |values|
     build_number = ""
     version = ""
 
+    # Ask to enter a version or re-enter the current version
     while (version == "" || !(version.match(/^\d+\.\d+\.\d+$/)))
         current_version = find_current_version_build_number().at(0)
         puts "Your version is : #{current_version}"
         version = UI.input("Please enter a new version: ")
     end
 
+    # Ask to enter a build number or re-enter the current build number
     while (build_number == "" || !(build_number.match(/^\d{1,4}$/))) # Only accept digit between (0 , 9999)
         build_number = find_current_version_build_number().at(1)
         puts "Your build number is : #{build_number}"
@@ -51,12 +53,14 @@ private_lane :create_prod_build do |values|
     build_number = ""
     version = ""
 
+    # Ask to enter a version or re-enter the current version
     while (version == "" || !(version.match(/^\d+\.\d+\.\d+$/)))
         current_version = find_current_version_build_number().at(0)
         puts "Your version is : #{current_version}"
         version = UI.input("Please enter a new version: ")
     end
 
+    # Ask to enter a build number or re-enter the current build number
     while (build_number == "" || !(build_number.match(/^\d{1,4}$/))) # Only accept digit between (0 , 9999)
         build_number = find_current_version_build_number().at(1)
         puts "Your build number is : #{build_number}"
@@ -81,6 +85,7 @@ end
 desc "Change build version and build number in pubspec.yaml"
 private_lane :change_version_build_number do |values|
     pubspec = File.read("../pubspec.yaml")
+    # Create the new text to place in pubspec.yaml
     newPubspec = pubspec.gsub(/(version:\s)\d+\.\d+\.\d+\+\d+/, '\1'+values[:version]+"+"+values[:build_number])
     File.open("../pubspec.yaml", "w") {|file| file.puts newPubspec}
 end
@@ -97,6 +102,7 @@ private_lane :run_test do
 end
 
 def choose_additional_arguments(env)
+    # Fetch required information from .run files
     runFile = File.read("../.run/"+env+".run.xml")
     build_arg = runFile.match(/name="additionalArgs".*value="(.*)"\s\/>/).captures
     return build_arg
