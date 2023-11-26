@@ -13,14 +13,14 @@ abstract class StationsService implements FacadeStationsService {
   @override
   @GET('/locations?q={search}')
   @Extra({Constants.customTimeOut: 10000})
-  Future<List<ResponseGetStations>> getStationsList(
+  Future<List<ResponseGetStations>> getApiStationsList(
     @CancelRequest() CancelToken cancelToken,
     @Path("search") String search,
   );
 }
 
 abstract class FacadeStationsService {
-  Future<List<ResponseGetStations>> getStationsList(
+  Future<List<ResponseGetStations>> getApiStationsList(
     CancelToken cancelToken,
     String search,
   );

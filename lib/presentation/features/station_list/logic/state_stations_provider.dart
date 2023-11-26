@@ -7,6 +7,7 @@ import 'package:green_flux/core/constants/constants.dart';
 import 'package:green_flux/core/handlers/url_handler.dart';
 import 'package:green_flux/core/mapper/stations_mapping.dart';
 import 'package:green_flux/core/router/router.dart';
+import 'package:green_flux/data/rest/services/location_service.dart';
 import 'package:green_flux/domain/domain_models/domain_stations.dart';
 import 'package:green_flux/domain/repositories/stations_repository.dart';
 import 'package:green_flux/presentation/presentation_models/location_presentation.dart';
@@ -18,7 +19,7 @@ final stateStationsProvider = StateNotifierProvider<StationsStateNotifier, Stati
 });
 
 class StationsStateNotifier extends StateNotifier<StationsList> {
-  final StationsRepository _repository;
+  final FacadeStationsRepository _repository;
   final int _searchGapTime = 500;
   Timer? _timer;
   String _previousSearch = "";
@@ -26,17 +27,17 @@ class StationsStateNotifier extends StateNotifier<StationsList> {
   List<DomainStations> _fetchedStations = [];
 
   StationsStateNotifier(this.ref, this._repository) : super(const StationsList.loading(isLockUser: true)) {
-    _initialFetchingStationsByUserLocation();
+    initialFetchingStationsByUserLocation();
   }
 
   /// Try to fetch user location and city name to initiate the first call
   /// to get stations to show users based on their location
-  _initialFetchingStationsByUserLocation() {
+  Future initialFetchingStationsByUserLocation() async {
     ref.read(stateLocationProvider.future).then((value) {
       value.when(denied: () {
         state = const StationsList.idle();
       }, granted: (LatLonData location) async {
-        final String? city = await _findCityNameByLatLon(location);
+        final String? city = await ref.read(stateLocationService).getCityNameByCoordinates(location);
         if (city != null) {
           onSearch(city, true);
         } else {
@@ -44,14 +45,6 @@ class StationsStateNotifier extends StateNotifier<StationsList> {
         }
       });
     });
-  }
-
-  Future<String?> _findCityNameByLatLon(LatLonData location) async {
-    List<Placemark> placemarks = await placemarkFromCoordinates(
-      location.lat,
-      location.lon,
-    );
-    return placemarks[0].locality;
   }
 
   /// This function will be called everytime user type a new digit
@@ -77,7 +70,7 @@ class StationsStateNotifier extends StateNotifier<StationsList> {
           state = const StationsList.idle();
         } else {
           final LatLonData? latLon = ref.read(stateLocationProvider).whenOrNull(data: (d) => d.whenOrNull(granted: (loc) => loc));
-          state = StationsList.data(addresses: StationsMapping.convertDomainStationsToStationPreview(listStations, latLon));
+          state = StationsList.data(stations: StationsMapping.convertDomainStationsToStationPreview(listStations, latLon));
         }
       }, error: (error) {
         _fetchedStations = [];

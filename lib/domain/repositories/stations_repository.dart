@@ -7,19 +7,20 @@ import 'package:green_flux/data/rest/service_provider/service_providers.dart';
 import 'package:green_flux/data/rest/services/service_stations.dart';
 import 'package:green_flux/presentation/presentation_models/stations_presentation_models.dart';
 
-final stationsRepositoryProvider = Provider<StationsRepository>((ref) => StationsRepository(ref.watch(serviceStationsProvider)));
+final stationsRepositoryProvider = Provider<FacadeStationsRepository>((ref) => StationsRepository(ref.watch(serviceStationsProvider)));
 
-class StationsRepository {
+class StationsRepository implements FacadeStationsRepository{
   final FacadeStationsService _stationsService;
   CancelToken _cancelToken = CancelToken();
 
   StationsRepository(this._stationsService);
 
+  @override
   Future<StationsListSearchResponse> getStationsList(String search) async {
     try {
       _cancelToken.cancel();
       _cancelToken = CancelToken();
-      final response = await _stationsService.getStationsList(_cancelToken, search);
+      final response = await _stationsService.getApiStationsList(_cancelToken, search);
       return StationsListSearchResponse(
         networkResponse: NetworkResponse.success(StationsMapping.convertDataStationsToDomainStations(response)),
         searchText: search,
@@ -37,4 +38,8 @@ class StationsRepository {
       );
     }
   }
+}
+
+abstract class FacadeStationsRepository{
+  Future<StationsListSearchResponse> getStationsList(String search);
 }

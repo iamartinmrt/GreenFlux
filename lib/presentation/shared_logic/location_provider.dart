@@ -1,4 +1,5 @@
 import 'package:geolocator/geolocator.dart';
+import 'package:green_flux/data/rest/services/location_service.dart';
 import 'package:green_flux/presentation/presentation_models/location_presentation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -11,14 +12,14 @@ class StateLocation extends _$StateLocation {
     bool serviceEnabled;
     LocationPermission permission;
 
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    serviceEnabled = await ref.read(stateLocationService).isLocationServiceEnabled();
     if (!serviceEnabled) {
       return const LocationState.denied();
     }
 
-    permission = await Geolocator.checkPermission();
+    permission = await ref.read(stateLocationService).checkPermission();
     if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
+      permission = await ref.read(stateLocationService).requestPermission();
       if (permission == LocationPermission.denied) {
         return const LocationState.denied();
       }
@@ -27,7 +28,7 @@ class StateLocation extends _$StateLocation {
     if (permission == LocationPermission.deniedForever) {
       return const LocationState.denied();
     }
-    final Position position = await Geolocator.getCurrentPosition();
+    final Position position = await ref.read(stateLocationService).getCurrentPosition();
     return LocationState.granted(
       latLong: LatLonData(lat: position.latitude, lon: position.longitude),
     );

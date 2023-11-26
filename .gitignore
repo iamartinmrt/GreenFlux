@@ -41,6 +41,7 @@ app.*.map.json
 # auto generateds
 *.g.dart
 *.freezed.dart
+*.mocks.dart
 
 # Android Studio will place build artifacts here
 /android/app/debug

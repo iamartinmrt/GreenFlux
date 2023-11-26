@@ -14,7 +14,7 @@ class StationsList with _$StationsList {
   const factory StationsList.error({required String error}) = _error;
 
   const factory StationsList.data({
-    required List<StationLocationQuickPreview> addresses,
+    required List<StationLocationQuickPreview> stations,
   }) = _stationsList;
 }
 
